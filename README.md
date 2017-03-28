@@ -1,6 +1,11 @@
 # ZOOP Laravel
 
 Zoop-laravel is a package for **Laravel 5.3+**, which consumes ZOOP payments api's.
+> Statistics  
+[![Latest Stable Version](https://poser.pugx.org/adhenrique/zoop/version)](https://packagist.org/packages/adhenrique/zoop)
+[![Total Downloads](https://poser.pugx.org/adhenrique/zoop/downloads)](https://packagist.org/packages/adhenrique/zoop)
+[![Latest Unstable Version](https://poser.pugx.org/adhenrique/zoop/v/unstable)](//packagist.org/packages/adhenrique/zoop)
+[![License](https://poser.pugx.org/adhenrique/zoop/license)](https://packagist.org/packages/adhenrique/zoop)
 
 ## Requeriments
 
