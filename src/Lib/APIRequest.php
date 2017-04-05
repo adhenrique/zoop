@@ -64,9 +64,9 @@ class APIRequest{
             throw new ZoopAuthenticationException("Marketplace id não configurada. Verifique seu arquivo de configurações em 'resources/config/config.php'");
         }
 
-        if ($this->zoopBase->getPublishableKey() == null) {
-            throw new ZoopAuthenticationException("Publishable key não configurada. Verifique seu arquivo de configurações em 'resources/config/config.php'");
-        }
+//        if ($this->zoopBase->getPublishableKey() == null) {
+//            throw new ZoopAuthenticationException("Publishable key não configurada. Verifique seu arquivo de configurações em 'resources/config/config.php'");
+//        }
 
         list($response_body, $response_code) = $this->requestWithCURL($method, $url, $headers, $data);
 
@@ -109,17 +109,21 @@ class APIRequest{
 
         $opts = Array();
 
-        list($url, $data) = $this->encodeParameters($method, $url, $data);
+//        list($url, $data) = $this->encodeParameters($method, $url, $data);
+
+//        $asd = http_build_query($data);
+
+//        dd($url);
 
         if (strtolower($method) == "post") {
             $opts[CURLOPT_POST] = 1;
-            $opts[CURLOPT_POSTFIELDS] = $data;
+            $opts[CURLOPT_POSTFIELDS] = http_build_query($data);
         }
         if (strtolower($method) == "delete") $opts[CURLOPT_CUSTOMREQUEST] = 'DELETE';
 
         if (strtolower($method) == "put") {
             $opts[CURLOPT_CUSTOMREQUEST] = 'PUT';
-            $opts[CURLOPT_POSTFIELDS] = $data;
+            $opts[CURLOPT_POSTFIELDS] = http_build_query($data);
         }
 
         $opts[CURLOPT_URL] = $url;
