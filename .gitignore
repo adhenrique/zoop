@@ -18,4 +18,5 @@ tmp/**
 
 /vendor/
 composer.lock
-/resources/config/*
+resources/config/*
+resources/config/**
