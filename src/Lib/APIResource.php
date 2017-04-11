@@ -3,9 +3,15 @@
 namespace Zoop\src\Lib;
 
 use Zoop\src\Exceptions\ZoopException;
+use Zoop\src\Helpers\ZoopHelpers;
 use Zoop\src\ZoopBase;
 
 class APIResource{
+
+    /**
+     * ZoopHelpers
+    */
+    use ZoopHelpers;
 
     /**
      * APIResource instance
@@ -27,6 +33,8 @@ class APIResource{
      * @var APIRequest
     */
     protected $APIRequest;
+
+    protected static $CURLFile;
 
     /**
      * Self constructor.
@@ -50,6 +58,34 @@ class APIResource{
             self::$instance = new APIResource($zoopBase);
         }
         return self::$instance;
+    }
+
+    /**
+     * File resource
+     *
+     * @param $api string
+     * @param $files array
+     *
+     * @return mixed
+     *
+     * @throws ZoopException
+    */
+    public function fileAPI($api, $files){
+        $url = $this->zoopBase->getUrl() . $this->zoopBase->getMarketplaceId() . '/' . $api;
+        try {
+//
+            if(is_array($files)){
+                throw new ZoopException('You can only upload one file per request! Array given...');
+            }else{
+                return $this->APIRequest->request('FILE', $url, $this->zoopBase->getHeaders(), [
+                    'file' => new \CURLFile($files ,'' , uniqid()),
+                    'category' => 'identification'
+                ]);
+            }
+
+        } catch (ZoopException $e) {
+            throw new ZoopException($e->getMessage());
+        }
     }
 
     /**

@@ -58,4 +58,16 @@ class ZoopSellers implements \Zoop\src\Contracts\ZoopSellers {
         $api = 'sellers';
         return $this->APIResource->searchAPI($api);
     }
+
+
+    /**
+     * @param $sellerID string
+     * @param $files array
+     *
+     * @return mixed
+     */
+    public function sendDocs($sellerID, $files){
+        $api = 'sellers/' . $sellerID . '/documents';
+        return $this->APIResource->fileAPI($api, $files);
+    }
 }

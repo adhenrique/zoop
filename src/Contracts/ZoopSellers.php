@@ -45,4 +45,12 @@ interface ZoopSellers{
      * Returns a JSON object with a list of Sellers.
      */
     public function getAll();
+
+    /**
+     * Send docs files
+     *
+     * @param $sellerID string
+     * @param $files array
+     */
+    public function sendDocs($sellerID, $files);
 }
