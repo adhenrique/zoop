@@ -53,4 +53,18 @@ interface ZoopSellers{
      * @param $files array
      */
     public function sendDocs($sellerID, $files);
+
+    /**
+     * Get doc details
+     *
+     * @param $docID string
+    */
+    public function getDoc($docID);
+
+    /**
+     * Get all docs from a given Seller
+     *
+     * @param $sellerID string
+    */
+    public function getAllDocs($sellerID);
 }
