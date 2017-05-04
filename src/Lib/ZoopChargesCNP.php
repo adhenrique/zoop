@@ -58,10 +58,15 @@ class ZoopChargesCNP implements \Zoop\src\Contracts\ZoopChargesCNP {
     }
 
     /**
+     * @param $get array || null
      * @return mixed
      */
-    public function getAll(){
-        $api = 'transactions';
+    public function getAll($get = null){
+        if(!is_null($get)){
+            $api = 'transactions?' . http_build_query($get);
+        }else{
+            $api = 'transactions';
+        }
         return $this->APIResource->searchAPI($api);
     }
 }
