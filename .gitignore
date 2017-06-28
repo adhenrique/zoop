@@ -1,3 +1,1 @@
 *.DS_Store
-composer.lock
-src/resources/config/config.example.php
