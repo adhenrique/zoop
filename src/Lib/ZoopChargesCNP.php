@@ -1,8 +1,8 @@
 <?php
 
-namespace Zoop\src\Lib;
+namespace Zoop\Lib;
 
-class ZoopChargesCNP implements \Zoop\src\Contracts\ZoopChargesCNP {
+class ZoopChargesCNP implements \Zoop\Contracts\ZoopChargesCNP {
 
     /**
      * API Resource

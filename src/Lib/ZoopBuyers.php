@@ -1,10 +1,9 @@
 <?php
 
-namespace Zoop\src\Lib;
+namespace Zoop\Lib;
 
-use Zoop\src\ZoopService;
 
-class ZoopBuyers implements \Zoop\src\Contracts\ZoopBuyers {
+class ZoopBuyers implements \Zoop\Contracts\ZoopBuyers {
 
     /**
      * API Resource

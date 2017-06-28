@@ -1,6 +1,6 @@
 <?php
 
-namespace Zoop\src\Facades;
+namespace Zoop\Facades;
 
 use Illuminate\Support\Facades\Facade;
 

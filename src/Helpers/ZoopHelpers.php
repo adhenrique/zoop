@@ -6,7 +6,7 @@
  * Time: 17:10
  */
 
-namespace Zoop\src\Helpers;
+namespace Zoop\Helpers;
 
 
 trait ZoopHelpers{

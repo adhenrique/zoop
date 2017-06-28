@@ -1,8 +1,8 @@
 <?php
 
-namespace Zoop\src\Contracts;
+namespace Zoop\Contracts;
 
-use Zoop\src\Lib\APIResource;
+use Zoop\Lib\APIResource;
 
 interface ZoopChargesCNP{
 

@@ -1,18 +1,18 @@
 <?php
 
-namespace Zoop\src;
+namespace Zoop;
 
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\ServiceProvider;
-use Zoop\src\Lib\APIResource;
-use Zoop\src\Lib\ZoopBuyers;
-use Zoop\src\Lib\ZoopSellers;
-use Zoop\src\Lib\ZoopBankAccounts;
-use Zoop\src\Lib\ZoopCards;
-use Zoop\src\Lib\ZoopChargesCNP;
-use Zoop\src\Lib\ZoopSplitTransactions;
-use Zoop\src\Lib\ZoopTokens;
-use Zoop\src\Lib\ZoopTransfers;
+use Zoop\Lib\APIResource;
+use Zoop\Lib\ZoopBuyers;
+use Zoop\Lib\ZoopSellers;
+use Zoop\Lib\ZoopBankAccounts;
+use Zoop\Lib\ZoopCards;
+use Zoop\Lib\ZoopChargesCNP;
+use Zoop\Lib\ZoopSplitTransactions;
+use Zoop\Lib\ZoopTokens;
+use Zoop\Lib\ZoopTransfers;
 
 class ZoopServiceProvider extends ServiceProvider {
 

@@ -1,8 +1,8 @@
 <?php
 
-namespace Zoop\src\Lib;
+namespace Zoop\Lib;
 
-class ZoopTransfers implements \Zoop\src\Contracts\ZoopTransfers {
+class ZoopTransfers implements \Zoop\Contracts\ZoopTransfers {
 
     /**
      * API Resource

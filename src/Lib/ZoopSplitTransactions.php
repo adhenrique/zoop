@@ -1,8 +1,8 @@
 <?php
 
-namespace Zoop\src\Lib;
+namespace Zoop\Lib;
 
-class ZoopSplitTransactions implements \Zoop\src\Contracts\ZoopSplitTransactions {
+class ZoopSplitTransactions implements \Zoop\Contracts\ZoopSplitTransactions {
 
     /**
      * API Resource

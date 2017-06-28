@@ -30,7 +30,7 @@ Update your application configuration to register the package in `config/app.php
 ~~~
 'providers' => [
     //...
-    Zoop\src\ZoopServiceProvider::class,
+    Zoop\ZoopServiceProvider::class,
     //...
 ],
 ~~~

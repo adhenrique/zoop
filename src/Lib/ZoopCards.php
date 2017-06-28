@@ -1,8 +1,8 @@
 <?php
 
-namespace Zoop\src\Lib;
+namespace Zoop\Lib;
 
-class ZoopCards implements \Zoop\src\Contracts\ZoopCards {
+class ZoopCards implements \Zoop\Contracts\ZoopCards {
 
     /**
      * API Resource

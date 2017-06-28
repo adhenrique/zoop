@@ -1,6 +1,6 @@
 <?php
 
-namespace Zoop\src;
+namespace Zoop;
 
 class ZoopBase {
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Zoop\src\Lib;
+namespace Zoop\Lib;
 
 use Zoop\src\Exceptions\ZoopAuthenticationException;
 use Zoop\src\Exceptions\ZoopObjectNotFound;

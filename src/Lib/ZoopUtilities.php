@@ -1,6 +1,6 @@
 <?php
 
-namespace Zoop\src\Lib;
+namespace Zoop\Lib;
 
 class ZoopUtilities{
 

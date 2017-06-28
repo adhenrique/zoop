@@ -1,10 +1,10 @@
 <?php
 
-namespace Zoop\src\Lib;
+namespace Zoop\Lib;
 
-use Zoop\src\Exceptions\ZoopException;
-use Zoop\src\Helpers\ZoopHelpers;
-use Zoop\src\ZoopBase;
+use Zoop\Exceptions\ZoopException;
+use Zoop\Helpers\ZoopHelpers;
+use Zoop\ZoopBase;
 
 class APIResource{
 
