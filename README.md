@@ -36,7 +36,7 @@ Update your application configuration to register the package in `config/app.php
 ~~~
 
 ### 3 - Update ZOOP Laravel configuration
-Update your credentials in `zoop/src/resources/config/config.php` by changing the following lines:
+Rename config.example.php to config.php in `zoop/src/resources/config/config.php` and change the following lines:
 
 ~~~
 'defaults'  => [
