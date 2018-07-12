@@ -139,4 +139,4 @@ class HomeController extends Controller{
 
 ## ZOOP Api Reference
 
-[https://pagzoop.com/api/docs/](https://pagzoop.com/api/docs/)
+[https://docs.zoop.co/v1/reference](https://docs.zoop.co/v1/reference)
