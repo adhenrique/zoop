@@ -41,7 +41,7 @@ class ZoopTokens implements \Zoop\Contracts\ZoopTokens {
      * @param string $token
      */
     public function get($token){
-        $api = 'tokens' . $token;
-        $this->APIResource->searchAPI($api);
+        $api = 'tokens/' . $token;
+        return $this->APIResource->searchAPI($api);
     }
 }
