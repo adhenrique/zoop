@@ -1,22 +1,8 @@
 {
-    "name": "adhenrique/zoop",
+    "name": "andersonvalesan/zoop",
     "description": "Zoop SDK to Laravel framework version 5.3+",
     "keywords": [
-        "Zoop",
-        "pagamento móvel",
-        "cartão de credito",
-        "ponto de venda",
-        "e-commerce",
-        "PDV",
-        "Wispot",
-        "Myguest"
-    ],
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Adenilton Henrique Ribeiro",
-            "email": "adhenriquemusic@gmail.com"
-        }
+        "Zoop"
     ],
     "require": {
         "php": ">=5.6",
