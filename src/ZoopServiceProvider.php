@@ -80,6 +80,14 @@ class ZoopServiceProvider extends ServiceProvider {
             ZoopTokens::class,
             ZoopTransfers::class
         ];
+    } 
+
+    public function mergeConfigFrom( $config, $zoopConfig )
+    {
+        $origin    = $this->app[ 'config' ]->get( $zoopConfig, [] );
+        $newConfig = config( sprintf( 'services.%s', $zoopConfig ) );
+
+        $this->app[ 'config' ]->set( $zoopConfig, array_merge( $newConfig, $origin ) );
     }
 
 }
