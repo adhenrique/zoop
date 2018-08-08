@@ -4,6 +4,13 @@
     "keywords": [
         "Zoop"
     ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Adenilton Henrique Ribeiro",
+            "email": "adhenriquemusic@gmail.com"
+        }
+    ],
     "require": {
         "php": ">=5.6",
         "ext-curl": "*",
