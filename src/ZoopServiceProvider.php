@@ -20,7 +20,7 @@ class ZoopServiceProvider extends ServiceProvider {
      * @return void
      */
     public function boot(){
-
+        $this->publishConfig();
     }
 
     /**
@@ -28,9 +28,7 @@ class ZoopServiceProvider extends ServiceProvider {
      */
     public function register(){
 
-        $configFile = __DIR__.'/resources/config/config.php';
-
-        $this->mergeConfigFrom($configFile, 'zoopconfig');
+        $this->mergeConfig();
 
         $service = ZoopBase::getSingleton($this->app['config']->get('zoopconfig', []));
 
@@ -82,4 +80,29 @@ class ZoopServiceProvider extends ServiceProvider {
         ];
     }
 
+     /**
+     * @return void
+     */
+    private function mergeConfig()
+    {
+        $path = $this->getConfigPath();
+        $this->mergeConfigFrom($path, 'zoopconfig');
+    }
+
+    /**
+     * @return void
+     */
+    private function publishConfig()
+    {
+        $path = $this->getConfigPath();
+        $this->publishes([$path => config_path('zoop.php')], 'config');
+    }
+
+    /**
+     * @return void
+     */
+    private function getConfigPath()
+    {
+        return __DIR__.'/resources/config/zoop.php';
+    }
 }
