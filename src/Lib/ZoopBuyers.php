@@ -3,7 +3,8 @@
 namespace Zoop\Lib;
 
 
-class ZoopBuyers implements \Zoop\Contracts\ZoopBuyers {
+class ZoopBuyers implements \Zoop\Contracts\ZoopBuyers
+{
 
     /**
      * API Resource
@@ -16,7 +17,8 @@ class ZoopBuyers implements \Zoop\Contracts\ZoopBuyers {
      * ZoopBuyers constructor.
      * @param APIResource $APIResource
      */
-    public function __construct(APIResource $APIResource){
+    public function __construct(APIResource $APIResource)
+    {
         $this->APIResource = $APIResource;
     }
 
@@ -24,16 +26,28 @@ class ZoopBuyers implements \Zoop\Contracts\ZoopBuyers {
      * @param array $post
      * @return mixed
      */
-    public function create($post = []){
+    public function create($post = [])
+    {
         $api = 'buyers';
         return $this->APIResource->createAPI($api, $post);
+    }
+
+    /**
+     * @param array $post
+     * @return mixed
+     */
+    public function update($id, $post)
+    {
+        $api = 'buyers/' . $id;
+        return $this->APIResource->updateAPI($api, $post);
     }
 
     /**
      * @param string $buyerID
      * @return mixed
      */
-    public function delete($buyerID){
+    public function delete($buyerID)
+    {
         $api = 'buyers/' . $buyerID;
         return $this->APIResource->deleteAPI($api);
     }
@@ -42,7 +56,8 @@ class ZoopBuyers implements \Zoop\Contracts\ZoopBuyers {
      * @param string $buyerID
      * @return mixed
      */
-    public function get($buyerID){
+    public function get($buyerID)
+    {
         $api = 'buyers/' . $buyerID;
         return $this->APIResource->searchAPI($api);
     }
@@ -50,7 +65,8 @@ class ZoopBuyers implements \Zoop\Contracts\ZoopBuyers {
     /**
      * @return mixed
      */
-    public function getAll(){
+    public function getAll()
+    {
         $api = 'buyers';
         return $this->APIResource->searchAPI($api);
     }
