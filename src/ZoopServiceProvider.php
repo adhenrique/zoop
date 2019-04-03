@@ -13,22 +13,24 @@ use Zoop\Lib\ZoopChargesCNP;
 use Zoop\Lib\ZoopSplitTransactions;
 use Zoop\Lib\ZoopTokens;
 use Zoop\Lib\ZoopTransfers;
+use Zoop\Lib\ZoopBoletos;
 
-class ZoopServiceProvider extends ServiceProvider {
-
-    /**
-     * @return void
-     */
-    public function boot(){
-
-    }
+class ZoopServiceProvider extends ServiceProvider
+{
 
     /**
      * @return void
      */
-    public function register(){
+    public function boot()
+    { }
 
-        $configFile = __DIR__.'/resources/config/config.php';
+    /**
+     * @return void
+     */
+    public function register()
+    {
+
+        $configFile = __DIR__ . '/resources/config/config.php';
 
         $this->mergeConfigFrom($configFile, 'zoopconfig');
 
@@ -36,6 +38,10 @@ class ZoopServiceProvider extends ServiceProvider {
 
         $this->app->singleton('ZoopBankAccounts', function () use ($service) {
             return new ZoopBankAccounts(APIResource::getSingleton($service));
+        });
+
+        $this->app->singleton('ZoopBoletos', function () use ($service) {
+            return new ZoopBoletos(APIResource::getSingleton($service));
         });
 
         $this->app->singleton('ZoopBuyers', function () use ($service) {
@@ -51,28 +57,30 @@ class ZoopServiceProvider extends ServiceProvider {
         });
 
         $this->app->singleton('ZoopSellers', function () use ($service) {
-                return new ZoopSellers(APIResource::getSingleton($service));
+            return new ZoopSellers(APIResource::getSingleton($service));
         });
 
         $this->app->singleton('ZoopSplitTransactions', function () use ($service) {
-                return new ZoopSplitTransactions(APIResource::getSingleton($service));
+            return new ZoopSplitTransactions(APIResource::getSingleton($service));
         });
 
         $this->app->singleton('ZoopTokens', function () use ($service) {
-                return new ZoopTokens(APIResource::getSingleton($service));
+            return new ZoopTokens(APIResource::getSingleton($service));
         });
 
         $this->app->singleton('ZoopTransfers', function () use ($service) {
-                return new ZoopTransfers(APIResource::getSingleton($service));
+            return new ZoopTransfers(APIResource::getSingleton($service));
         });
     }
 
     /**
      * @return array
      */
-    public function provides(){
+    public function provides()
+    {
         return [
             ZoopBankAccounts::class,
+            ZoopBoletos::class,
             ZoopBuyers::class,
             ZoopCards::class,
             ZoopChargesCNP::class,
@@ -81,5 +89,4 @@ class ZoopServiceProvider extends ServiceProvider {
             ZoopTransfers::class
         ];
     }
-
 }
