@@ -115,14 +115,14 @@ class APIRequest{
 
         if (strtolower($method) == "post") {
             $opts[CURLOPT_POST] = 1;
-            $opts[CURLOPT_POSTFIELDS] = http_build_query($data);
+            $opts[CURLOPT_POSTFIELDS] = json_encode($data);
         }
 
         if (strtolower($method) == "delete") $opts[CURLOPT_CUSTOMREQUEST] = 'DELETE';
 
         if (strtolower($method) == "put") {
             $opts[CURLOPT_CUSTOMREQUEST] = 'PUT';
-            $opts[CURLOPT_POSTFIELDS] = http_build_query($data);
+            $opts[CURLOPT_POSTFIELDS] = json_encode($data);
         }
 
         $opts[CURLOPT_URL] = $url;
