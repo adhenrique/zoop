@@ -4,13 +4,14 @@ namespace Zoop\Contracts;
 
 use Zoop\Lib\APIResource;
 
-interface ZoopTransfers{
+interface ZoopTransfers
+{
 
     /**
      * API Resource.
      *
      * @param $APIResource $APIResource
-    */
+     */
     public function __construct(APIResource $APIResource);
 
     /**
@@ -18,7 +19,7 @@ interface ZoopTransfers{
      *
      * @param $bankAccountID string
      * @param $post array
-    */
+     */
     public function create($bankAccountID, $post);
 
     /**
@@ -32,4 +33,9 @@ interface ZoopTransfers{
      * Returns a JSON object with a list of Transfers.
      */
     public function getAll();
+
+    /**
+     * Peer to peer transfer.
+     */
+    public function transferP2P($owner, $receiver);
 }

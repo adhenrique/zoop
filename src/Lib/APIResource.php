@@ -6,32 +6,33 @@ use Zoop\Exceptions\ZoopException;
 use Zoop\Helpers\ZoopHelpers;
 use Zoop\ZoopBase;
 
-class APIResource{
+class APIResource
+{
 
     /**
      * ZoopHelpers
-    */
+     */
     use ZoopHelpers;
 
     /**
      * APIResource instance
      *
      * @var APIResource
-    */
+     */
     protected static $instance;
 
     /**
      * ZoopBase instance
      *
      * @var ZoopBase
-    */
+     */
     protected $zoopBase;
 
     /**
      * APIRequest instance
      *
      * @var APIRequest
-    */
+     */
     protected $APIRequest;
 
     protected static $CURLFile;
@@ -41,7 +42,8 @@ class APIResource{
      *
      * @param ZoopBase $zoopBase
      */
-    protected function __construct(ZoopBase $zoopBase){
+    protected function __construct(ZoopBase $zoopBase)
+    {
         $this->zoopBase = $zoopBase;
         $this->APIRequest = APIRequest::getInstance($zoopBase);
     }
@@ -53,7 +55,8 @@ class APIResource{
      *
      * @return APIResource
      */
-    public static function getSingleton(ZoopBase $zoopBase){
+    public static function getSingleton(ZoopBase $zoopBase)
+    {
         if (is_null(self::$instance)) {
             self::$instance = new APIResource($zoopBase);
         }
@@ -69,8 +72,9 @@ class APIResource{
      * @return mixed
      *
      * @throws ZoopException
-    */
-    public function fileAPI($api, $files){
+     */
+    public function fileAPI($api, $files)
+    {
         $url = $this->zoopBase->getUrl() . $this->zoopBase->getMarketplaceId() . '/' . $api;
         $mimeTypes = [
             'application/pdf',
@@ -78,22 +82,21 @@ class APIResource{
             'image/png'
         ];
         try {
-//
-            if(is_array($files)){
+            //
+            if (is_array($files)) {
                 throw new ZoopException('You can only upload one file per request! Array given...');
-            }else{
-                if(filesize($files) > 250000) throw new ZoopException('You can only send files with 250 kbytes of size.');
+            } else {
+                if (filesize($files) > 250000) throw new ZoopException('You can only send files with 250 kbytes of size.');
 
-                if(!is_file($files)) throw new ZoopException('Looks like this is not a file...');
+                if (!is_file($files)) throw new ZoopException('Looks like this is not a file...');
 
-                if(!in_array(mime_content_type($files), $mimeTypes)) throw new ZoopException('You can only send files of types "jpg, png, pdf"!');
+                if (!in_array(mime_content_type($files), $mimeTypes)) throw new ZoopException('You can only send files of types "jpg, png, pdf"!');
 
                 return $this->APIRequest->request('FILE', $url, $this->zoopBase->getHeaders(), [
-                    'file' => new \CURLFile($files ,'' , uniqid()),
+                    'file' => new \CURLFile($files, '', uniqid()),
                     'category' => 'identification'
                 ]);
             }
-
         } catch (ZoopException $e) {
             throw new ZoopException($e->getMessage());
         }
@@ -109,11 +112,11 @@ class APIResource{
      *
      * @throws ZoopException
      */
-    public function createAPI($api, $attributes = []) {
+    public function createAPI($api, $attributes = [])
+    {
         $url = $this->zoopBase->getUrl() . $this->zoopBase->getMarketplaceId() . '/' . $api;
         try {
             return $this->APIRequest->request('POST', $url, $this->zoopBase->getHeaders(), $attributes);
-
         } catch (ZoopException $e) {
             throw new ZoopException($e->getMessage());
         }
@@ -128,11 +131,11 @@ class APIResource{
      *
      * @throws ZoopException
      */
-    public function searchAPI($api){
+    public function searchAPI($api)
+    {
         $url = $this->zoopBase->getUrl() . $this->zoopBase->getMarketplaceId() . '/' . $api;
         try {
             return $this->APIRequest->request('GET', $url, $this->zoopBase->getHeaders());
-
         } catch (ZoopException $e) {
             throw new ZoopException($e->getMessage());
         }
@@ -147,11 +150,11 @@ class APIResource{
      *
      * @throws ZoopException
      */
-    public function deleteAPI($api) {
+    public function deleteAPI($api)
+    {
         $url = $this->zoopBase->getUrl() . $this->zoopBase->getMarketplaceId() . '/' . $api;
         try {
             return $this->APIRequest->request('DELETE', $url, $this->zoopBase->getHeaders());
-
         } catch (ZoopException $e) {
             throw new ZoopException($e->getMessage());
         }
@@ -167,11 +170,11 @@ class APIResource{
      *
      * @throws ZoopException
      */
-    public function updateAPI($api, $attributes = []){
+    public function updateAPI($api, $attributes = [])
+    {
         $url = $this->zoopBase->getUrl() . $this->zoopBase->getMarketplaceId() . '/' . $api;
         try {
             return $this->APIRequest->request('PUT', $url, $this->zoopBase->getHeaders(), $attributes);
-
         } catch (ZoopException $e) {
             throw new ZoopException($e->getMessage());
         }

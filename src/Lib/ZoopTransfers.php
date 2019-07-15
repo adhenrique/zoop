@@ -2,7 +2,8 @@
 
 namespace Zoop\Lib;
 
-class ZoopTransfers implements \Zoop\Contracts\ZoopTransfers {
+class ZoopTransfers implements \Zoop\Contracts\ZoopTransfers
+{
 
     /**
      * API Resource
@@ -15,7 +16,8 @@ class ZoopTransfers implements \Zoop\Contracts\ZoopTransfers {
      * ZoopTransfers constructor.
      * @param APIResource $APIResource
      */
-    public function __construct(APIResource $APIResource){
+    public function __construct(APIResource $APIResource)
+    {
         $this->APIResource = $APIResource;
     }
 
@@ -24,7 +26,8 @@ class ZoopTransfers implements \Zoop\Contracts\ZoopTransfers {
      * @param array $post
      * @return mixed
      */
-    public function create($bankAccountID, $post = []){
+    public function create($bankAccountID, $post = [])
+    {
         $api = 'bankaccounts/' . $bankAccountID . '/transfers';
         return $this->APIResource->createAPI($api, $post);
     }
@@ -33,7 +36,8 @@ class ZoopTransfers implements \Zoop\Contracts\ZoopTransfers {
      * @param string $bankAccountID
      * @return mixed
      */
-    public function get($bankAccountID){
+    public function get($bankAccountID)
+    {
         $api = 'bankaccounts/' . $bankAccountID;
         return $this->APIResource->searchAPI($api);
     }
@@ -41,8 +45,15 @@ class ZoopTransfers implements \Zoop\Contracts\ZoopTransfers {
     /**
      * @return mixed
      */
-    public function getAll(){
+    public function getAll()
+    {
         $api = 'bankaccounts';
         return $this->APIResource->searchAPI($api);
+    }
+
+    public function transferP2P($owner, $receiver, $post = [])
+    {
+        $api = "transfers/$owner/to/$receiver";
+        $this->APIResource->createAPI($api, $post);
     }
 }
