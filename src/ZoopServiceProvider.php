@@ -15,6 +15,7 @@ use Zoop\Lib\ZoopTokens;
 use Zoop\Lib\ZoopTransfers;
 use Zoop\Lib\ZoopPlans;
 use Zoop\Lib\ZoopSubscriptions;
+use Zoop\Lib\ZoopInvoices;
 
 class ZoopServiceProvider extends ServiceProvider {
 
@@ -75,6 +76,10 @@ class ZoopServiceProvider extends ServiceProvider {
         $this->app->singleton('ZoopSubscriptions', function () use ($service) {
             return new ZoopSubscriptions(APIResource::getSingleton($service));
         });
+
+        $this->app->singleton('ZoopInvoices', function () use ($service) {
+            return new ZoopInvoices(APIResource::getSingleton($service));
+        });
     }
 
     /**
@@ -89,8 +94,9 @@ class ZoopServiceProvider extends ServiceProvider {
             ZoopSellers::class,
             ZoopTokens::class,
             ZoopTransfers::class,
-            ZoopPlans::class
-            ZoopSubscriptions::class
+            ZoopPlans::class,
+            ZoopSubscriptions::class,
+            ZoopInvoices::class
         ];
     }
 
