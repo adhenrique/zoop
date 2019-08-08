@@ -71,7 +71,11 @@ class APIResource{
      * @throws ZoopException
     */
     public function fileAPI($api, $files){
-        $url = $this->zoopBase->getUrl() . $this->zoopBase->getMarketplaceId() . '/' . $api;
+        if ($this->zoopBase->endpointIsBeta($api)) {
+            $url = $this->zoopBase->getUrlBeta() . $this->zoopBase->getMarketplaceId() . '/' . $api;
+        } else {
+            $url = $this->zoopBase->getUrl() . $this->zoopBase->getMarketplaceId() . '/' . $api;
+        }
         $mimeTypes = [
             'application/pdf',
             'image/jpeg',
@@ -110,7 +114,11 @@ class APIResource{
      * @throws ZoopException
      */
     public function createAPI($api, $attributes = []) {
-        $url = $this->zoopBase->getUrl() . $this->zoopBase->getMarketplaceId() . '/' . $api;
+        if ($this->zoopBase->endpointIsBeta($api)) {
+            $url = $this->zoopBase->getUrlBeta() . $this->zoopBase->getMarketplaceId() . '/' . $api;
+        } else {
+            $url = $this->zoopBase->getUrl() . $this->zoopBase->getMarketplaceId() . '/' . $api;
+        }
         try {
             return $this->APIRequest->request('POST', $url, $this->zoopBase->getHeaders(), $attributes);
 
@@ -129,7 +137,11 @@ class APIResource{
      * @throws ZoopException
      */
     public function searchAPI($api){
-        $url = $this->zoopBase->getUrl() . $this->zoopBase->getMarketplaceId() . '/' . $api;
+        if ($this->zoopBase->endpointIsBeta($api)) {
+            $url = $this->zoopBase->getUrlBeta() . $this->zoopBase->getMarketplaceId() . '/' . $api;
+        } else {
+            $url = $this->zoopBase->getUrl() . $this->zoopBase->getMarketplaceId() . '/' . $api;
+        }
         try {
             return $this->APIRequest->request('GET', $url, $this->zoopBase->getHeaders());
 
@@ -148,7 +160,11 @@ class APIResource{
      * @throws ZoopException
      */
     public function deleteAPI($api) {
-        $url = $this->zoopBase->getUrl() . $this->zoopBase->getMarketplaceId() . '/' . $api;
+        if ($this->zoopBase->endpointIsBeta($api)) {
+            $url = $this->zoopBase->getUrlBeta() . $this->zoopBase->getMarketplaceId() . '/' . $api;
+        } else {
+            $url = $this->zoopBase->getUrl() . $this->zoopBase->getMarketplaceId() . '/' . $api;
+        }
         try {
             return $this->APIRequest->request('DELETE', $url, $this->zoopBase->getHeaders());
 
@@ -168,7 +184,11 @@ class APIResource{
      * @throws ZoopException
      */
     public function updateAPI($api, $attributes = []){
-        $url = $this->zoopBase->getUrl() . $this->zoopBase->getMarketplaceId() . '/' . $api;
+        if ($this->zoopBase->endpointIsBeta($api)) {
+            $url = $this->zoopBase->getUrlBeta() . $this->zoopBase->getMarketplaceId() . '/' . $api;
+        } else {
+            $url = $this->zoopBase->getUrl() . $this->zoopBase->getMarketplaceId() . '/' . $api;
+        }
         try {
             return $this->APIRequest->request('PUT', $url, $this->zoopBase->getHeaders(), $attributes);
 
