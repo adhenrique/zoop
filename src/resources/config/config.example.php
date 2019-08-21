@@ -12,6 +12,6 @@ return [
         'endpoint'          => 'https://api.zoop.ws',
         'endpoint_beta'     => 'https://api-beta.zoop.ws',
         'api_version'       => 'v1',
-        'apis_use_beta'     => ['plans', 'subscriptions', 'invoices'],
+        'apis_use_beta'     => ['tests', 'examples'],
     ]
 ];
