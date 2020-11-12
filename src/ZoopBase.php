@@ -69,11 +69,34 @@ class ZoopBase {
     }
 
     /**
+     * Get endpoint URL beta
+     *
+     * @return string
+     */
+    public function getUrlBeta(){
+        return $this->config['defaults']['endpoint_beta'] . '/' . $this->config['defaults']['api_version'] . '/marketplaces/';
+    }
+
+    /**
      * Get Curl Headers
      *
      * @return array
      */
     public function getHeaders(){
         return $this->config['headers'];
+    }
+
+    /**
+     * return bool api is beta
+     *
+     * @return bool
+     */
+    public function endpointIsBeta($endpoint) {
+        $pattern = implode('|', $this->config['defaults']['apis_use_beta']);
+        preg_match("($pattern)", $endpoint, $match);
+        if (count($match) > 0) {
+            return true;
+        }
+        return false;
     }
 }
