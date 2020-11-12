@@ -24,18 +24,14 @@ class ZoopServiceProvider extends ServiceProvider {
      * @return void
      */
     public function boot(){
-
+        $this->registerPublishing();
+        $this->mergeConfigFrom(__DIR__.'/resources/config/config.example.php', 'zoopconfig');
     }
 
     /**
      * @return void
      */
     public function register(){
-
-        $configFile = __DIR__.'/resources/config/config.php';
-
-        $this->mergeConfigFrom($configFile, 'zoopconfig');
-
         $service = ZoopBase::getSingleton($this->app['config']->get('zoopconfig', []));
 
         $this->app->singleton('ZoopBankAccounts', function () use ($service) {
@@ -85,6 +81,21 @@ class ZoopServiceProvider extends ServiceProvider {
         $this->app->singleton('ZoopWebhooks', function () use ($service) {
             return new ZoopWebhooks(APIResource::getSingleton($service));
         });
+    }
+
+    /**
+     * Register the package's publishable resources.
+     *
+     * @return void
+     */
+    private function registerPublishing()
+    {
+        if ($this->app->runningInConsole()) {
+            // Lumen lacks a config_path() helper, so we use base_path()
+            $this->publishes([
+                __DIR__.'/resources/config/config.example.php' => base_path('config/zoopconfig.php'),
+            ], 'config');
+        }
     }
 
     /**
