@@ -35,8 +35,14 @@ Update your application configuration to register the package in `config/app.php
 ],
 ~~~
 
-### 3 - Update ZOOP Laravel configuration
-Rename config.example.php to config.php in `zoop/src/resources/config/` and change the following lines:
+### 3 - Publish ZOOP Laravel configuration
+Use the following command to publish the configuration settings from config.example.php in `zoop/src/resources/config/`:
+
+~~~
+php artisan vendor:publish --provider "Zoop\ZoopServiceProvider" --tag="config"
+~~~
+
+This will create the `config/zoopconfig.php` configuration file. Now, change the following lines:
 
 ~~~
 'defaults'  => [
