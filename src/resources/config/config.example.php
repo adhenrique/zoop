@@ -10,6 +10,8 @@ return [
         'publishable_key'   => 'YOUR_PUBLISHABLE_KEY',
         'marketplace_id'    => 'YOUR_MARKETPLACE_ID',
         'endpoint'          => 'https://api.zoop.ws',
+        'endpoint_beta'     => 'https://api-beta.zoop.ws',
         'api_version'       => 'v1',
+        'apis_use_beta'     => ['tests', 'examples'],
     ]
 ];
