@@ -35,8 +35,14 @@ Update your application configuration to register the package in `config/app.php
 ],
 ~~~
 
-### 3 - Update ZOOP Laravel configuration
-Rename config.example.php to config.php in `zoop/src/resources/config/` and change the following lines:
+### 3 - Publish ZOOP Laravel configuration
+Use the following command to publish the configuration settings from config.example.php in `zoop/src/resources/config/`:
+
+~~~
+php artisan vendor:publish --provider "Zoop\ZoopServiceProvider" --tag="config"
+~~~
+
+This will create the `config/zoopconfig.php` configuration file. Now, change the following lines:
 
 ~~~
 'defaults'  => [
@@ -128,9 +134,11 @@ class HomeController extends Controller{
         'description' => 'Venda de teste, somente!',
         'statement_descriptor' => 'Descrição de testes',
         'on_behalf_of' => 'bb2a51f1c22a4c30b6bf6819be87ac52',
-        'installment_plan[mode]' => 'interest_free',
-        'installment_plan[number_installments]' => '1',
-        'customer' => 'bb2a51f1c22a4c30b6bf6819be87ac52', //buyer ud
+        'installment_plan' => [
+            'mode' => 'interest_free',
+            'number_installments' => '1'
+        ],
+        'customer' => 'bb2a51f1c22a4c30b6bf6819be87ac52', //buyer id
     ]);
     
     dd($cnp);
