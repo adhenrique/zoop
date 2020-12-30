@@ -20,7 +20,7 @@ interface ZoopSubscriptions{
     */
     public function create($post);
 
-        /**
+    /**
      * Update a created Subscription
      *
      * @param $subscriptionID string

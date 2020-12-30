@@ -21,6 +21,14 @@ interface ZoopBuyers{
     public function create($post);
 
     /**
+     * Update a created Buyer
+     *
+     * @param $buyerID string
+     * @param $post array
+     */
+    public function update($buyerID, $post);
+
+    /**
      * Delete a Buyer by id
      *
      * @param $buyerID string
@@ -33,6 +41,13 @@ interface ZoopBuyers{
      * @param $buyerID string
      */
     public function get($buyerID);
+
+    /**
+     * Retrieve the details of a Buyer by taxpayer_id
+     *
+     * @param $taxpayerID string
+     */
+    public function getByTaxpayerId($taxpayerID);
 
     /**
      * Returns a JSON object with a list of buyers accounts.

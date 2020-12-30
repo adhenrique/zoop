@@ -134,9 +134,11 @@ class HomeController extends Controller{
         'description' => 'Venda de teste, somente!',
         'statement_descriptor' => 'Descrição de testes',
         'on_behalf_of' => 'bb2a51f1c22a4c30b6bf6819be87ac52',
-        'installment_plan[mode]' => 'interest_free',
-        'installment_plan[number_installments]' => '1',
-        'customer' => 'bb2a51f1c22a4c30b6bf6819be87ac52', //buyer ud
+        'installment_plan' => [
+            'mode' => 'interest_free',
+            'number_installments' => '1'
+        ],
+        'customer' => 'bb2a51f1c22a4c30b6bf6819be87ac52', //buyer id
     ]);
     
     dd($cnp);

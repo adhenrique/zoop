@@ -1,5 +1,5 @@
 <?php
 
-namespace Zoop\src\Exceptions;
+namespace Zoop\Exceptions;
 
 class ZoopException extends \Exception {}
