@@ -31,6 +31,16 @@ class ZoopBuyers implements \Zoop\Contracts\ZoopBuyers {
 
     /**
      * @param string $buyerID
+     * @param array $post
+     * @return mixed
+     */
+    public function update($buyerID, $post){
+        $api = 'buyers/' . $buyerID;
+        return $this->APIResource->updateAPI($api, $post);
+    }
+
+    /**
+     * @param string $buyerID
      * @return mixed
      */
     public function delete($buyerID){
@@ -44,6 +54,15 @@ class ZoopBuyers implements \Zoop\Contracts\ZoopBuyers {
      */
     public function get($buyerID){
         $api = 'buyers/' . $buyerID;
+        return $this->APIResource->searchAPI($api);
+    }
+
+    /**
+     * @param string $taxpayerID
+     * @return mixed
+     */
+    public function getByTaxpayerId($taxpayerID){
+        $api = 'buyers/search?taxpayer_id='.$taxpayerID;
         return $this->APIResource->searchAPI($api);
     }
 
