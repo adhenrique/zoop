@@ -87,6 +87,26 @@ class ZoopBase {
     }
 
     /**
+     * Get Curl Headers to upload files
+     *
+     * @return array
+     */
+    public function getHeadersFile(){
+        $headers = $this->getHeaders();
+
+        $contentTypeDefault = 'Content-Type: application/json';
+        $contentTypeFile = 'Content-Type: multipart/form-data';
+
+        if ($key = array_search($contentTypeDefault, $headers)) {
+            $headers[$key] = $contentTypeFile;
+        } else if (!$key = array_search($contentTypeFile, $headers)) {
+            $headers[] = $contentTypeFile;
+        }
+
+        return $headers;
+    }
+
+    /**
      * return bool api is beta
      *
      * @return bool
