@@ -92,7 +92,7 @@ class APIResource{
 
                 if(!in_array($files->getClientMimeType(), $mimeTypes)) throw new ZoopException('You can only send files of types "jpg, png, pdf"!');
 
-                return $this->APIRequest->request('FILE', $url, $this->zoopBase->getHeaders(), [
+                return $this->APIRequest->request('FILE', $url, $this->zoopBase->getHeadersFile(), [
                     'file' => new \CURLFile($files ,'' , uniqid()),
                     'category' => 'identification'
                 ]);
