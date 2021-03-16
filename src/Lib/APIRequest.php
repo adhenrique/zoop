@@ -2,8 +2,8 @@
 
 namespace Zoop\Lib;
 
-use Zoop\src\Exceptions\ZoopAuthenticationException;
-use Zoop\src\Exceptions\ZoopObjectNotFound;
+use Zoop\Exceptions\ZoopAuthenticationException;
+use Zoop\Exceptions\ZoopObjectNotFound;
 
 class APIRequest{
     

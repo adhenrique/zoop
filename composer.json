@@ -1,15 +1,8 @@
 {
-    "name": "adhenrique/zoop",
+    "name": "andersonvalesan/zoop",
     "description": "Zoop SDK to Laravel framework version 5.3+",
     "keywords": [
-        "Zoop",
-        "pagamento móvel",
-        "cartão de credito",
-        "ponto de venda",
-        "e-commerce",
-        "PDV",
-        "Wispot",
-        "Myguest"
+        "Zoop"
     ],
     "license": "MIT",
     "authors": [

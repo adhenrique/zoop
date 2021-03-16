@@ -2,6 +2,7 @@
 return [
     'version'   => '1.0.0',
     'headers'          => [
+        'Content-type: application/json',
         'Accept: application/json',
         'Accept-Charset: utf-8',
         'Accept-Language: pt-br;q=0.9,pt-BR'
