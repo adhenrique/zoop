@@ -46,7 +46,9 @@ class ZoopBase {
      *
      * @return void
      */
-    public function setApiVersionByResource($resource){
+    public function setApiVersionByResource($apiResource){
+        [$resource] = explode('/', $apiResource);
+
         if (!empty($this->config['custom'][$resource])) {
             $this->config['defaults']['api_version'] = $this->config['custom'][$resource]['api_version'];
         }
