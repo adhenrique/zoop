@@ -42,6 +42,19 @@ class ZoopBase {
     }
 
     /**
+     * Set Api Version By Resource
+     *
+     * @return void
+     */
+    public function setApiVersionByResource($apiResource){
+        [$resource] = explode('/', $apiResource);
+
+        if (!empty($this->config['custom'][$resource])) {
+            $this->config['defaults']['api_version'] = $this->config['custom'][$resource]['api_version'];
+        }
+    }
+
+    /**
      * Get Publishable Key
      *
      * @return string
