@@ -48,4 +48,12 @@ interface ZoopChargesCNP{
      * @param $get array || null
      */
     public function getAll($get = null);
+
+    /**
+     * Returns a JSON object with a list of transactions by seller.
+     * 
+     * @param $sellerID string
+     * @param $get array || null
+     */
+    public function getAllBySeller($sellerID, $get = null);
 }

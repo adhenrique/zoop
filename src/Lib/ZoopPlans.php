@@ -16,7 +16,7 @@ class ZoopPlans implements \Zoop\Contracts\ZoopPlans {
      * ZoopPlans constructor.
      * @param APIResource $APIResource
      */
-    public function __construct(APIResource $APIResource){
+    public function __construct(APIResource $APIResource) {
         $this->APIResource = $APIResource;
     }
 
@@ -24,7 +24,7 @@ class ZoopPlans implements \Zoop\Contracts\ZoopPlans {
      * @param array $post
      * @return mixed
      */
-    public function create($post = []){
+    public function create($post = []) {
         $api = 'plans';
         return $this->APIResource->createAPI($api, $post);
     }
@@ -34,7 +34,7 @@ class ZoopPlans implements \Zoop\Contracts\ZoopPlans {
      * @param array $post
      * @return mixed
      */
-    public function update($planID, $post){
+    public function update($planID, $post) {
         $api = 'plans/' . $planID;
         return $this->APIResource->updateAPI($api, $post);
     }
@@ -43,7 +43,7 @@ class ZoopPlans implements \Zoop\Contracts\ZoopPlans {
      * @param string $planID
      * @return mixed
      */
-    public function delete($planID){
+    public function delete($planID) {
         $api = 'plans/' . $planID;
         return $this->APIResource->deleteAPI($api);
     }
@@ -52,7 +52,7 @@ class ZoopPlans implements \Zoop\Contracts\ZoopPlans {
      * @param string $planID
      * @return mixed
      */
-    public function get($planID){
+    public function get($planID) {
         $api = 'plans/' . $planID;
         return $this->APIResource->searchAPI($api);
     }
@@ -60,7 +60,7 @@ class ZoopPlans implements \Zoop\Contracts\ZoopPlans {
     /**
      * @return mixed
      */
-    public function getAll(){
+    public function getAll() {
         $api = 'plans';
         return $this->APIResource->searchAPI($api);
     }

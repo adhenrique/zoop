@@ -15,7 +15,7 @@ class ZoopBankAccounts implements \Zoop\Contracts\ZoopBankAccounts {
      * ZoopBankAccounts constructor.
      * @param APIResource $APIResource
      */
-    public function __construct(APIResource $APIResource){
+    public function __construct(APIResource $APIResource) {
         $this->APIResource = $APIResource;
     }
 
@@ -23,7 +23,16 @@ class ZoopBankAccounts implements \Zoop\Contracts\ZoopBankAccounts {
      * @param array $post
      * @return mixed
      */
-    public function associateWithACustomer($post){
+    public function create($post) {
+        $api = 'bank_accounts/tokens';
+        return $this->APIResource->createAPI($api, $post);
+    }
+
+    /**
+     * @param array $post
+     * @return mixed
+     */
+    public function associateWithACustomer($post) {
         $api = 'bank_accounts';
         return $this->APIResource->createAPI($api, $post);
     }
@@ -33,7 +42,7 @@ class ZoopBankAccounts implements \Zoop\Contracts\ZoopBankAccounts {
      * @param array $post
      * @return mixed
      */
-    public function deactivate($bankAccountID, $post){
+    public function deactivate($bankAccountID, $post) {
         $api = 'bank_accounts/' . $bankAccountID;
         return $this->APIResource->updateAPI($api, $post);
     }
@@ -42,7 +51,7 @@ class ZoopBankAccounts implements \Zoop\Contracts\ZoopBankAccounts {
      * @param string $bankAccountID
      * @return mixed
      */
-    public function delete($bankAccountID){
+    public function delete($bankAccountID) {
         $api = 'bank_accounts/' . $bankAccountID;
         return $this->APIResource->deleteAPI($api);
     }
@@ -51,7 +60,7 @@ class ZoopBankAccounts implements \Zoop\Contracts\ZoopBankAccounts {
      * @param string $bankAccountID
      * @return mixed
      */
-    public function get($bankAccountID){
+    public function get($bankAccountID) {
         $api = 'bank_accounts/' . $bankAccountID;
         return $this->APIResource->searchAPI($api);
     }
@@ -59,8 +68,17 @@ class ZoopBankAccounts implements \Zoop\Contracts\ZoopBankAccounts {
     /**
      * @return mixed
      */
-    public function getAll(){
+    public function getAll() {
         $api = 'bank_accounts';
+        return $this->APIResource->searchAPI($api);
+    }
+
+    /**
+     * @param string $sellerID
+     * @return mixed
+     */
+    public function getAllBySeller($sellerID) {
+        $api = 'sellers/' . $sellerID . '/bank_accounts';
         return $this->APIResource->searchAPI($api);
     }
 }

@@ -11,7 +11,7 @@ class ZoopUtilities{
      *
      * @return string
      */
-    public static function utf8($value){
+    public static function utf8($value) {
         return (is_string($value) && mb_detect_encoding($value, "UTF-8", true) != "UTF-8")?utf8_encode($value):$value;
     }
 
@@ -22,7 +22,7 @@ class ZoopUtilities{
      *
      * @return false|int
      */
-    public static function convertDateFromISO($datetime ){
+    public static function convertDateFromISO($datetime ) {
         return strtotime($datetime);
     }
 
@@ -33,7 +33,7 @@ class ZoopUtilities{
      *
      * @return false|string
      */
-    public static function convertEpochToISO($epoch ){
+    public static function convertEpochToISO($epoch ) {
         return date("c", $epoch);
     }
 
@@ -45,7 +45,7 @@ class ZoopUtilities{
      *
      * @return string
      */
-    public static function arrayToParams($array, $prefix = null){
+    public static function arrayToParams($array, $prefix = null) {
         if (!is_array($array)) return $array;
 
         $params = Array();

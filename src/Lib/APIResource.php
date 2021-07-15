@@ -42,7 +42,7 @@ class APIResource{
      *
      * @param ZoopBase $zoopBase
      */
-    protected function __construct(ZoopBase $zoopBase){
+    protected function __construct(ZoopBase $zoopBase) {
         $this->zoopBase = $zoopBase;
         $this->APIRequest = APIRequest::getInstance($zoopBase);
     }
@@ -54,7 +54,7 @@ class APIResource{
      *
      * @return APIResource
      */
-    public static function getSingleton(ZoopBase $zoopBase){
+    public static function getSingleton(ZoopBase $zoopBase) {
         if (is_null(self::$instance)) {
             self::$instance = new APIResource($zoopBase);
         }
@@ -71,7 +71,7 @@ class APIResource{
      *
      * @throws ZoopException
     */
-    public function fileAPI($api, $files){
+    public function fileAPI($api, $files) {
         $this->zoopBase->setApiVersionByResource($api);
 
         if ($this->zoopBase->endpointIsBeta($api)) {
@@ -86,7 +86,7 @@ class APIResource{
         ];
         try {
 //
-            if(is_array($files)){
+            if(is_array($files)) {
                 throw new ZoopException('You can only upload one file per request! Array given...');
             }else{
                 if(filesize($files) > 250000) throw new ZoopException('You can only send files with 250 kbytes of size.');
@@ -141,7 +141,7 @@ class APIResource{
      *
      * @throws ZoopException
      */
-    public function searchAPI($api){
+    public function searchAPI($api) {
         $this->zoopBase->setApiVersionByResource($api);
 
         if ($this->zoopBase->endpointIsBeta($api)) {
@@ -194,7 +194,7 @@ class APIResource{
      *
      * @throws ZoopException
      */
-    public function updateAPI($api, $attributes = []){
+    public function updateAPI($api, $attributes = []) {
         $this->zoopBase->setApiVersionByResource($api);
 
         if ($this->zoopBase->endpointIsBeta($api)) {
