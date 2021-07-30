@@ -26,7 +26,7 @@ class APIRequest{
      *
      * @param $base object
     */
-    public function __construct($base){
+    public function __construct($base) {
         $this->zoopBase = $base;
     }
 
@@ -37,7 +37,7 @@ class APIRequest{
      *
      * @return APIRequest
     */
-    public static function getInstance($base){
+    public static function getInstance($base) {
         if (is_null(self::$instance)) {
             self::$instance = new APIRequest($base);
         }
@@ -57,7 +57,7 @@ class APIRequest{
      * @throws ZoopAuthenticationException
      * @throws ZoopObjectNotFound
      */
-    public function request($method, $url, $headers, $data = []){
+    public function request($method, $url, $headers, $data = []) {
         global $zoop_last_api_response_code;
 
         if ($this->zoopBase->getMarketplaceId() == null) {
@@ -104,11 +104,11 @@ class APIRequest{
      *
      * @return array
      */
-    private function requestWithCURL($method, $url, $headers, $data = Array()){
+    private function requestWithCURL($method, $url, $headers, $data = Array()) {
         $curl = curl_init();
         $opts = Array();
 
-        if(strtolower($method) == 'file'){
+        if(strtolower($method) == 'file') {
             $opts[CURLOPT_POST] = 1;
             $opts[CURLOPT_POSTFIELDS] = $data;
         }

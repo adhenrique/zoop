@@ -15,7 +15,7 @@ class ZoopCards implements \Zoop\Contracts\ZoopCards {
      * ZoopCards constructor.
      * @param APIResource $APIResource
      */
-    public function __construct(APIResource $APIResource){
+    public function __construct(APIResource $APIResource) {
         $this->APIResource = $APIResource;
     }
 
@@ -23,7 +23,7 @@ class ZoopCards implements \Zoop\Contracts\ZoopCards {
      * @param array $post
      * @return mixed
      */
-    public function associateWithACustomer($post){
+    public function associateWithACustomer($post) {
         $api = 'cards';
         return $this->APIResource->createAPI($api, $post);
     }
@@ -33,7 +33,7 @@ class ZoopCards implements \Zoop\Contracts\ZoopCards {
      * @param array $post
      * @return mixed
      */
-    public function deactivate($creditCardID, $post){
+    public function deactivate($creditCardID, $post) {
         $api = 'cards/' . $creditCardID;
         return $this->APIResource->updateAPI($api, $post);
     }
@@ -42,7 +42,7 @@ class ZoopCards implements \Zoop\Contracts\ZoopCards {
      * @param string $creditCardID
      * @return mixed
      */
-    public function delete($creditCardID){
+    public function delete($creditCardID) {
         $api = 'cards/' . $creditCardID;
         return $this->APIResource->deleteAPI($api);
     }
@@ -51,7 +51,7 @@ class ZoopCards implements \Zoop\Contracts\ZoopCards {
      * @param string $creditCardID
      * @return mixed
      */
-    public function get($creditCardID){
+    public function get($creditCardID) {
         $api = 'cards/' . $creditCardID;
         return $this->APIResource->searchAPI($api);
     }
@@ -59,7 +59,7 @@ class ZoopCards implements \Zoop\Contracts\ZoopCards {
     /**
      * @return mixed
      */
-    public function getAll(){
+    public function getAll() {
         $api = 'cards';
         return $this->APIResource->searchAPI($api);
     }
