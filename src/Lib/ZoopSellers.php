@@ -150,4 +150,12 @@ class ZoopSellers implements \Zoop\Contracts\ZoopSellers {
         return $this->APIResource->searchAPI($api);
     }
 
+    /**
+     * @return mixed
+     */
+    public function getBalances() {
+        $api = 'sellers/' . $sellerID . '/balances';
+        return $this->APIResource->searchAPI($api);
+    }
+
 }
