@@ -113,5 +113,5 @@ interface ZoopSellers{
     /**
      * Returns a JSON object with a current balance and total account balance
     */
-    public function getBalances();
+    public function getBalances($sellerID);
 }
