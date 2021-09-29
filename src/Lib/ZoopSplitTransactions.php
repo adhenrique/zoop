@@ -16,7 +16,7 @@ class ZoopSplitTransactions implements \Zoop\Contracts\ZoopSplitTransactions {
      *
      * @param APIResource $APIResource
      */
-    public function __construct(APIResource $APIResource){
+    public function __construct(APIResource $APIResource) {
         $this->APIResource = ($APIResource);
     }
 
@@ -25,7 +25,7 @@ class ZoopSplitTransactions implements \Zoop\Contracts\ZoopSplitTransactions {
      * @param array $post
      * @return mixed
      */
-    public function create($transactionID, $post){
+    public function create($transactionID, $post) {
         $api = 'transactions/' . $transactionID . '/split_rules';
         return $this->APIResource->createAPI($api, $post);
     }
@@ -35,7 +35,7 @@ class ZoopSplitTransactions implements \Zoop\Contracts\ZoopSplitTransactions {
      * @param array $post
      * @return mixed
      */
-    public function update($transactionID, $splitRuleID, $post){
+    public function update($transactionID, $splitRuleID, $post) {
         $api = 'transactions/' . $transactionID . '/split_rules/' . $splitRuleID;
         return $this->APIResource->updateAPI($api, $post);
     }
@@ -45,7 +45,7 @@ class ZoopSplitTransactions implements \Zoop\Contracts\ZoopSplitTransactions {
      * @param string $splitRuleID
      * @return mixed
      */
-    public function delete($transactionID, $splitRuleID){
+    public function delete($transactionID, $splitRuleID) {
         $api = 'transactions/' . $transactionID . '/split_rules/' . $splitRuleID;
         return $this->APIResource->deleteAPI($api);
     }
@@ -54,7 +54,7 @@ class ZoopSplitTransactions implements \Zoop\Contracts\ZoopSplitTransactions {
      * @param string $transactionID
      * @return mixed
      */
-    public function getAllSplitRules($transactionID){
+    public function getAllSplitRules($transactionID) {
         $api = 'transactions/' . $transactionID . '/split_rules';
         return $this->APIResource->searchAPI($api);
     }
@@ -63,7 +63,7 @@ class ZoopSplitTransactions implements \Zoop\Contracts\ZoopSplitTransactions {
      * @param string $transactionID
      * @return mixed
      */
-    public function getTransactionReceivables($transactionID){
+    public function getTransactionReceivables($transactionID) {
         $api = 'transactions/' . $transactionID . '/receivables';
         return $this->APIResource->searchAPI($api);
     }
