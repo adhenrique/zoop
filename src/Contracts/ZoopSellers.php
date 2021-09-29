@@ -21,6 +21,14 @@ interface ZoopSellers{
     public function createIndividuals($post);
 
     /**
+     * Update a created Individual Seller
+     *
+     * @param $sellerID string
+     * @param $post array
+     */
+    public function updateIndividuals($sellerID, $post);
+
+    /**
      * Create a new Business Seller
      *
      * @param $post array
@@ -28,18 +36,40 @@ interface ZoopSellers{
     public function createBusiness($post);
 
     /**
+     * Update a created Business Seller
+     *
+     * @param $sellerID string
+     * @param $post array
+     */
+    public function updateBusiness($sellerID, $post);
+
+    /**
      * Delete a Seller by id
      *
-     * @param $buyerID string
+     * @param $sellerID string
     */
-    public function delete($buyerID);
+    public function delete($sellerID);
 
     /**
      * Retrieve the details of a Seller by id
      *
-     * @param $buyerID string
+     * @param $sellerID string
      */
-    public function get($buyerID);
+    public function get($sellerID);
+
+    /**
+     * Retrieve the details of a Seller by taxpayer_id
+     *
+     * @param $sellerTaxpayer_id string
+     */
+    public function getByTaxpayer_id($sellerTaxpayer_id);
+
+    /**
+     * Retrieve the details of a Seller by ein
+     *
+     * @param $sellerEin string
+     */
+    public function getByEin($sellerEin);
 
     /**
      * Returns a JSON object with a list of Sellers.
@@ -67,4 +97,21 @@ interface ZoopSellers{
      * @param $sellerID string
     */
     public function getAllDocs($sellerID);
+
+    /**
+     * Download doc file
+     *
+     * @param $docID string
+     */
+    public function downloadDoc($docID);
+
+    /**
+     * Returns a JSON object with a list of MCCs.
+    */
+    public function getAllMccs();
+
+    /**
+     * Returns a JSON object with a current balance and total account balance
+    */
+    public function getBalances($sellerID);
 }

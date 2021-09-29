@@ -9,7 +9,7 @@ class ZoopTransfers extends Facade{
     /**
      * @return string
      */
-    protected static function getFacadeAccessor(){
+    protected static function getFacadeAccessor() {
         return 'ZoopTransfers';
     }
 }

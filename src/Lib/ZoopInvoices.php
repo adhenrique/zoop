@@ -16,7 +16,7 @@ class ZoopInvoices implements \Zoop\Contracts\ZoopInvoices {
      * ZoopInvoices constructor.
      * @param APIResource $APIResource
      */
-    public function __construct(APIResource $APIResource){
+    public function __construct(APIResource $APIResource) {
         $this->APIResource = $APIResource;
     }
 
@@ -24,7 +24,7 @@ class ZoopInvoices implements \Zoop\Contracts\ZoopInvoices {
      * @param array $post
      * @return mixed
      */
-    public function create($post = []){
+    public function create($post = []) {
         $api = 'invoices';
         return $this->APIResource->createAPI($api, $post);
     }
@@ -34,7 +34,7 @@ class ZoopInvoices implements \Zoop\Contracts\ZoopInvoices {
      * @param array $post
      * @return mixed
      */
-    public function update($InvoiceID, $post){
+    public function update($InvoiceID, $post) {
         $api = 'invoices/' . $InvoiceID;
         return $this->APIResource->updateAPI($api, $post);
     }
@@ -44,7 +44,7 @@ class ZoopInvoices implements \Zoop\Contracts\ZoopInvoices {
      * @param array $post
      * @return mixed
      */
-    public function approve($InvoiceID){
+    public function approve($InvoiceID) {
         $api = 'invoices/' . $InvoiceID . '/approve';
         return $this->APIResource->createAPI($api);
     }
@@ -54,7 +54,7 @@ class ZoopInvoices implements \Zoop\Contracts\ZoopInvoices {
      * @param array $post
      * @return mixed
      */
-    public function void($InvoiceID){
+    public function void($InvoiceID) {
         $api = 'invoices/' . $InvoiceID . '/void';
         return $this->APIResource->createAPI($api);
     }
@@ -63,7 +63,7 @@ class ZoopInvoices implements \Zoop\Contracts\ZoopInvoices {
      * @param string $InvoiceID
      * @return mixed
      */
-    public function delete($InvoiceID){
+    public function delete($InvoiceID) {
         $api = 'invoices/' . $InvoiceID;
         return $this->APIResource->deleteAPI($api);
     }
@@ -72,7 +72,7 @@ class ZoopInvoices implements \Zoop\Contracts\ZoopInvoices {
      * @param string $InvoiceID
      * @return mixed
      */
-    public function get($InvoiceID){
+    public function get($InvoiceID) {
         $api = 'invoices/' . $InvoiceID;
         return $this->APIResource->searchAPI($api);
     }
@@ -80,7 +80,7 @@ class ZoopInvoices implements \Zoop\Contracts\ZoopInvoices {
     /**
      * @return mixed
      */
-    public function getAll(){
+    public function getAll() {
         $api = 'invoices';
         return $this->APIResource->searchAPI($api);
     }
@@ -88,7 +88,7 @@ class ZoopInvoices implements \Zoop\Contracts\ZoopInvoices {
     /**
      * @return mixed
      */
-    public function getAllBySeller($customerID){
+    public function getAllBySeller($customerID) {
         $api = 'sellers/' . $customerID . '/invoices';
         return $this->APIResource->searchAPI($api);
     }

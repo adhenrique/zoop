@@ -16,7 +16,7 @@ class ZoopSubscriptions implements \Zoop\Contracts\ZoopSubscriptions {
      * ZoopSubscriptions constructor.
      * @param APIResource $APIResource
      */
-    public function __construct(APIResource $APIResource){
+    public function __construct(APIResource $APIResource) {
         $this->APIResource = $APIResource;
     }
 
@@ -24,7 +24,7 @@ class ZoopSubscriptions implements \Zoop\Contracts\ZoopSubscriptions {
      * @param array $post
      * @return mixed
      */
-    public function create($post = []){
+    public function create($post = []) {
         $api = 'subscriptions';
         return $this->APIResource->createAPI($api, $post);
     }
@@ -34,7 +34,7 @@ class ZoopSubscriptions implements \Zoop\Contracts\ZoopSubscriptions {
      * @param array $post
      * @return mixed
      */
-    public function update($subscriptionID, $post){
+    public function update($subscriptionID, $post) {
         $api = 'subscriptions/' . $subscriptionID;
         return $this->APIResource->updateAPI($api, $post);
     }
@@ -44,7 +44,7 @@ class ZoopSubscriptions implements \Zoop\Contracts\ZoopSubscriptions {
      * @param array $post
      * @return mixed
      */
-    public function suspend($subscriptionID){
+    public function suspend($subscriptionID) {
         $api = 'subscriptions/' . $subscriptionID . '/suspend';
         return $this->APIResource->createAPI($api);
     }
@@ -54,7 +54,7 @@ class ZoopSubscriptions implements \Zoop\Contracts\ZoopSubscriptions {
      * @param array $post
      * @return mixed
      */
-    public function reactivate($subscriptionID){
+    public function reactivate($subscriptionID) {
         $api = 'subscriptions/' . $subscriptionID . '/reactivate';
         return $this->APIResource->createAPI($api);
     }
@@ -63,7 +63,7 @@ class ZoopSubscriptions implements \Zoop\Contracts\ZoopSubscriptions {
      * @param string $subscriptionID
      * @return mixed
      */
-    public function delete($subscriptionID){
+    public function delete($subscriptionID) {
         $api = 'subscriptions/' . $subscriptionID;
         return $this->APIResource->deleteAPI($api);
     }
@@ -72,7 +72,7 @@ class ZoopSubscriptions implements \Zoop\Contracts\ZoopSubscriptions {
      * @param string $subscriptionID
      * @return mixed
      */
-    public function get($subscriptionID){
+    public function get($subscriptionID) {
         $api = 'subscriptions/' . $subscriptionID;
         return $this->APIResource->searchAPI($api);
     }
@@ -80,7 +80,7 @@ class ZoopSubscriptions implements \Zoop\Contracts\ZoopSubscriptions {
     /**
      * @return mixed
      */
-    public function getAll(){
+    public function getAll() {
         $api = 'subscriptions';
         return $this->APIResource->searchAPI($api);
     }

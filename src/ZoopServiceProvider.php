@@ -23,7 +23,7 @@ class ZoopServiceProvider extends ServiceProvider {
     /**
      * @return void
      */
-    public function boot(){
+    public function boot() {
         $this->registerPublishing();
         $this->mergeConfigFrom(__DIR__.'/resources/config/config.example.php', 'zoopconfig');
     }
@@ -31,7 +31,7 @@ class ZoopServiceProvider extends ServiceProvider {
     /**
      * @return void
      */
-    public function register(){
+    public function register() {
         $service = ZoopBase::getSingleton($this->app['config']->get('zoopconfig', []));
 
         $this->app->singleton('ZoopBankAccounts', function () use ($service) {
@@ -101,7 +101,7 @@ class ZoopServiceProvider extends ServiceProvider {
     /**
      * @return array
      */
-    public function provides(){
+    public function provides() {
         return [
             ZoopBankAccounts::class,
             ZoopBuyers::class,

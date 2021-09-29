@@ -23,7 +23,7 @@ class ZoopBase {
      *
      * @param array $config
      */
-    private function __construct(array $config = []){
+    private function __construct(array $config = []) {
         $this->config = $config;
     }
 
@@ -34,11 +34,24 @@ class ZoopBase {
      *
      * @return ZoopBase
      */
-    public static function getSingleton($config = []){
-        if(is_null(self::$instance)){
+    public static function getSingleton($config = []) {
+        if(is_null(self::$instance)) {
             self::$instance = new ZoopBase($config);
         }
         return self::$instance;
+    }
+
+    /**
+     * Set Api Version By Resource
+     *
+     * @return void
+     */
+    public function setApiVersionByResource($apiResource) {
+        [$resource] = explode('/', $apiResource);
+
+        if (!empty($this->config['custom'][$resource])) {
+            $this->config['defaults']['api_version'] = $this->config['custom'][$resource]['api_version'];
+        }
     }
 
     /**
@@ -46,7 +59,7 @@ class ZoopBase {
      *
      * @return string
      */
-    public function getPublishableKey(){
+    public function getPublishableKey() {
         return $this->config['defaults']['publishable_key'];
     }
 
@@ -55,7 +68,7 @@ class ZoopBase {
      *
      * @return string
      */
-    public function getMarketplaceId(){
+    public function getMarketplaceId() {
         return $this->config['defaults']['marketplace_id'];
     }
 
@@ -64,7 +77,7 @@ class ZoopBase {
      *
      * @return string
      */
-    public function getUrl(){
+    public function getUrl() {
         return $this->config['defaults']['endpoint'] . '/' . $this->config['defaults']['api_version'] . '/marketplaces/';
     }
 
@@ -73,7 +86,7 @@ class ZoopBase {
      *
      * @return string
      */
-    public function getUrlBeta(){
+    public function getUrlBeta() {
         return $this->config['defaults']['endpoint_beta'] . '/' . $this->config['defaults']['api_version'] . '/marketplaces/';
     }
 
@@ -82,7 +95,7 @@ class ZoopBase {
      *
      * @return array
      */
-    public function getHeaders(){
+    public function getHeaders() {
         return $this->config['headers'];
     }
 
@@ -91,7 +104,7 @@ class ZoopBase {
      *
      * @return array
      */
-    public function getHeadersFile(){
+    public function getHeadersFile() {
         $headers = $this->getHeaders();
 
         $contentTypeDefault = 'Content-Type: application/json';

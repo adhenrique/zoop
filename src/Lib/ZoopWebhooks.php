@@ -16,7 +16,7 @@ class ZoopWebhooks implements \Zoop\Contracts\ZoopPlans {
      * ZoopPlans constructor.
      * @param APIResource $APIResource
      */
-    public function __construct(APIResource $APIResource){
+    public function __construct(APIResource $APIResource) {
         $this->APIResource = $APIResource;
     }
 
@@ -24,7 +24,7 @@ class ZoopWebhooks implements \Zoop\Contracts\ZoopPlans {
      * @param array $post
      * @return mixed
      */
-    public function create($post = []){
+    public function create($post = []) {
         $api = 'webhooks';
         return $this->APIResource->createAPI($api, $post);
     }
@@ -33,7 +33,7 @@ class ZoopWebhooks implements \Zoop\Contracts\ZoopPlans {
      * @param string $webhookID
      * @return mixed
      */
-    public function delete($webhookID){
+    public function delete($webhookID) {
         $api = 'webhooks/' . $webhookID;
         return $this->APIResource->deleteAPI($api);
     }
@@ -42,7 +42,7 @@ class ZoopWebhooks implements \Zoop\Contracts\ZoopPlans {
      * @param string $webhookID
      * @return mixed
      */
-    public function get($webhookID){
+    public function get($webhookID) {
         $api = 'webhooks/' . $webhookID;
         return $this->APIResource->searchAPI($api);
     }
@@ -50,7 +50,7 @@ class ZoopWebhooks implements \Zoop\Contracts\ZoopPlans {
     /**
      * @return mixed
      */
-    public function getAll(){
+    public function getAll() {
         $api = 'webhooks';
         return $this->APIResource->searchAPI($api);
     }

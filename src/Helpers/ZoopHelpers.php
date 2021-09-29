@@ -18,7 +18,7 @@ trait ZoopHelpers{
      *
      * @return array
     */
-    public function reArrayFiles(&$file){
+    public function reArrayFiles(&$file) {
 //        dd($file);
         $file_ary = array();
         $file_count = count($file['name']);
